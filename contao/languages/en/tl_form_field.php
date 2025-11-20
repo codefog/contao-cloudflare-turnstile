@@ -1,6 +1,5 @@
 <?php
 
-// Fields
 $GLOBALS['TL_LANG']['tl_form_field']['cloudflare_turnstile_size'] = ['Cloudflare Turnstile size', 'Here you can choose the Cloudflare Turnstile size.'];
 $GLOBALS['TL_LANG']['tl_form_field']['cloudflare_turnstile_theme'] = ['Cloudflare Turnstile theme', 'Here you can choose the Cloudflare Turnstile theme.'];
 $GLOBALS['TL_LANG']['tl_form_field']['cloudflare_turnstile_appearance'] = ['Cloudflare Turnstile appearance', 'Here you can choose the Cloudflare Turnstile appearance.'];
@@ -23,4 +22,3 @@ $GLOBALS['TL_LANG']['tl_form_field']['cloudflare_turnstile_appearance_ref'] = [
     'execute' => 'Execute',
     'interaction-only' => 'Interaction only',
 ];
-

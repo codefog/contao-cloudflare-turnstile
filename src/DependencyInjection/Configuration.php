@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Codefog\CloudflareTurnstileBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;

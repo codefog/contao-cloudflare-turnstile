@@ -1,6 +1,5 @@
 <?php
 
-// Explanations
 $GLOBALS['TL_LANG']['XPL']['cloudflare_turnstile_size'] = [
     ['Normal', 'The default size works well for most desktop and mobile layouts. Use this if you have adequate horizontal space on your website or form.'],
     ['Flexible', 'Automatically adapts to the container width while maintaining minimum usability. Use this for responsive designs that need to work across all screen sizes.'],
@@ -18,4 +17,3 @@ $GLOBALS['TL_LANG']['XPL']['cloudflare_turnstile_appearance'] = [
     ['Execute', 'The widget only becomes visible after the challenge begins. This is useful for when you need to control the timing of widget appearance, such as showing it only when a visitor starts filling out a form or selecting a submit button.'],
     ['Interaction only', 'The widget becomes visible only when visitor interaction is required and provides the cleanest visitor experience. Most visitors will never see the widget, but suspected bots will encounter the interactive challenge.'],
 ];
-

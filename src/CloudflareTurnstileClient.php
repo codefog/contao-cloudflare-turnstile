@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Codefog\CloudflareTurnstileBundle;
 
 use Contao\CoreBundle\Monolog\ContaoContext;
@@ -15,8 +17,7 @@ class CloudflareTurnstileClient
         private readonly RequestStack $requestStack,
         private readonly string $secretKey,
         private readonly string $siteKey,
-    )
-    {
+    ) {
     }
 
     public function getSiteKey(): string
@@ -40,11 +41,14 @@ class CloudflareTurnstileClient
         }
 
         try {
-            $response = $this->httpClient->request('POST', 'https://challenges.cloudflare.com/turnstile/v0/siteverify', [
-                'json' => $payload,
-            ])->toArray();
+            $response = $this->httpClient->request(
+                'POST',
+                'https://challenges.cloudflare.com/turnstile/v0/siteverify', [
+                    'json' => $payload,
+            ],
+            )->toArray();
         } catch (\Exception $e) {
-            $this->logger->error(sprintf('Error connecting to Cloudflare Turnstile service: %s', $e->getMessage()), ['contao' => new ContaoContext(__METHOD__)]);
+            $this->logger->error(\sprintf('Error connecting to Cloudflare Turnstile service: %s', $e->getMessage()), ['contao' => new ContaoContext(__METHOD__)]);
 
             return false;
         }

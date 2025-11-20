@@ -8,18 +8,17 @@ use Codefog\CloudflareTurnstileBundle\CloudflareTurnstileClient;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
     $services = $containerConfigurator->services();
-
     $services
         ->defaults()
         ->autoconfigure()
     ;
 
     $services
-        ->load('Codefog\\CloudflareTurnstileBundle\\', __DIR__ . '/../src')
-        ->exclude(__DIR__ . '/../src/ContaoManager')
-        ->exclude(__DIR__ . '/../src/DependencyInjection')
-        ->exclude(__DIR__ . '/../src/FormField')
-        ->exclude(__DIR__ . '/../src/CloudflareTurnstileBundle.php')
+        ->load('Codefog\\CloudflareTurnstileBundle\\', __DIR__.'/../src')
+        ->exclude(__DIR__.'/../src/ContaoManager')
+        ->exclude(__DIR__.'/../src/DependencyInjection')
+        ->exclude(__DIR__.'/../src/FormField')
+        ->exclude(__DIR__.'/../src/CloudflareTurnstileBundle.php')
     ;
 
     $services

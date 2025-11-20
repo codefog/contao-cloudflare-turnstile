@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Codefog\CloudflareTurnstileBundle\DependencyInjection;
 
 use Codefog\CloudflareTurnstileBundle\CloudflareTurnstileClient;

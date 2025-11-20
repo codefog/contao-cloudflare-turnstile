@@ -1,6 +1,5 @@
 <?php
 
-// Form fields
 $GLOBALS['TL_LANG']['FFL']['cloudflare_turnstile'] = ['Cloudflare Turnstile', 'Adds the Cloudflare Turnstile protection to the form.'];
 
 // Errors

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Codefog\CloudflareTurnstileBundle\FormField;
 
 use Codefog\CloudflareTurnstileBundle\CloudflareTurnstileClient;
@@ -12,7 +14,7 @@ class CloudflareTurnstileFormField extends Widget
     public HtmlAttributes $captchaAttributes;
 
     /**
-     * @var boolean
+     * @var bool
      */
     protected $blnForAttribute = true;
 
@@ -81,18 +83,15 @@ class CloudflareTurnstileFormField extends Widget
 
             // The context is also considered secure if the host is 127.0.0.1, localhost or *.localhost.
             // https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts#when_is_a_context_considered_secure
-            $this->canUseCaptcha = \in_array($host, ['127.0.0.1', 'localhost']) || str_ends_with($host, '.localhost');
+            $this->canUseCaptcha = \in_array($host, ['127.0.0.1', 'localhost'], true) || str_ends_with($host, '.localhost');
         }
 
         return parent::parse($arrAttributes);
     }
 
-    /**
-     * @param mixed $varInput
-     */
     protected function validator($varInput): mixed
     {
-        if (!$varInput || !is_string($varInput) || !$this->getCloudflareTurnstileClient()->validate($varInput)) {
+        if (!$varInput || !\is_string($varInput) || !$this->getCloudflareTurnstileClient()->validate($varInput)) {
             $this->addError($GLOBALS['TL_LANG']['ERR']['cloudflareTurnstileVerificationFailed']);
         }
 
@@ -102,8 +101,6 @@ class CloudflareTurnstileFormField extends Widget
     private function getCloudflareTurnstileClient(): CloudflareTurnstileClient
     {
         /** @var CloudflareTurnstileClient $client */
-        $client = $this->getContainer()->get(CloudflareTurnstileClient::class);
-
-        return $client;
+        return $this->getContainer()->get(CloudflareTurnstileClient::class);
     }
 }
