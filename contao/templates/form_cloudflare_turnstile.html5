@@ -1,0 +1,29 @@
+<?php $this->extend('form_row'); ?>
+
+<?php
+
+$GLOBALS['TL_HEAD'][] = '<link rel="preconnect" href="https://challenges.cloudflare.com">';
+$GLOBALS['TL_BODY'][] = '<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>';
+
+?>
+
+<?php $this->block('label'); ?>
+<?php if ($this->label): ?>
+  <label for="ctrl_<?= $this->id ?>"<?php if ($this->class): ?> class="<?= $this->class ?>"<?php endif; ?>>
+    <span class="invisible"><?= $this->mandatoryField ?> </span><?= $this->label ?><span class="mandatory">*</span>
+  </label>
+<?php endif; ?>
+<?php $this->endblock(); ?>
+
+<?php $this->block('field'); ?>
+<noscript><p class="warning"><?= $this->trans('ERR.cloudflareTurnstileJavaScriptRequired') ?></p></noscript>
+<?php if ($this->hasErrors()): ?>
+  <p class="error"><?= $this->getErrorAsString() ?></p>
+<?php endif; ?>
+
+<?php if (!$this->canUseCaptcha): ?>
+  <p class="error"><?= $this->trans('ERR.cloudflareTurnstileInsecureConnection') ?></p>
+<?php else: ?>
+  <div<?= $this->captchaAttributes ?>></div>
+<?php endif; ?>
+<?php $this->endblock(); ?>
