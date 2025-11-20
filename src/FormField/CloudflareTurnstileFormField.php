@@ -83,7 +83,7 @@ class CloudflareTurnstileFormField extends Widget
 
             // The context is also considered secure if the host is 127.0.0.1, localhost or *.localhost.
             // https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts#when_is_a_context_considered_secure
-            $this->canUseCaptcha = \in_array($host, ['127.0.0.1', 'localhost'], true) || str_ends_with($host, '.localhost');
+            $this->canUseCaptcha = \in_array($host, ['127.0.0.1', 'localhost'], true) || str_ends_with((string) $host, '.localhost');
         }
 
         return parent::parse($arrAttributes);
@@ -100,7 +100,6 @@ class CloudflareTurnstileFormField extends Widget
 
     private function getCloudflareTurnstileClient(): CloudflareTurnstileClient
     {
-        /** @var CloudflareTurnstileClient $client */
         return $this->getContainer()->get(CloudflareTurnstileClient::class);
     }
 }

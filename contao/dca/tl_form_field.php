@@ -3,7 +3,7 @@
 use Doctrine\DBAL\Types\Types;
 
 // Palettes
-$GLOBALS['TL_DCA']['tl_form_field']['palettes']['cloudflare_turnstile'] = '{type_legend},type,name,label;{fconfig_legend},cloudflare_turnstile_size,cloudflare_turnstile_theme,cloudflare_turnstile_appearance;{expert_legend:hide},class;{template_legend:hide},customTpl;{invisible_legend:hide},invisible';
+$GLOBALS['TL_DCA']['tl_form_field']['palettes']['cloudflare_turnstile'] = '{type_legend},type,name,label;{fconfig_legend},cloudflare_turnstile_size,cloudflare_turnstile_theme,cloudflare_turnstile_appearance;{expert_legend:collapsed},class;{template_legend:collapsed},customTpl;{invisible_legend:collapsed},invisible';
 
 // Fields
 $GLOBALS['TL_DCA']['tl_form_field']['fields']['cloudflare_turnstile_size'] = [

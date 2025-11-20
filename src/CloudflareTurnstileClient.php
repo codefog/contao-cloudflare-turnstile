@@ -43,9 +43,10 @@ class CloudflareTurnstileClient
         try {
             $response = $this->httpClient->request(
                 'POST',
-                'https://challenges.cloudflare.com/turnstile/v0/siteverify', [
-                    'json' => $payload,
-            ],
+                'https://challenges.cloudflare.com/turnstile/v0/siteverify',
+                [
+                        'json' => $payload,
+                    ],
             )->toArray();
         } catch (\Exception $e) {
             $this->logger->error(\sprintf('Error connecting to Cloudflare Turnstile service: %s', $e->getMessage()), ['contao' => new ContaoContext(__METHOD__)]);
