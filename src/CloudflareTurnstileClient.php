@@ -13,7 +13,7 @@ class CloudflareTurnstileClient
 {
     public function __construct(
         private readonly HttpClientInterface $httpClient,
-        private readonly LoggerInterface $contaoLogger,
+        private readonly LoggerInterface $logger,
         private readonly RequestStack $requestStack,
         private readonly string $secretKey,
         private readonly string $siteKey,
@@ -49,7 +49,7 @@ class CloudflareTurnstileClient
                 ],
             )->toArray();
         } catch (\Exception $e) {
-            $this->contaoLogger->error(\sprintf('Error connecting to Cloudflare Turnstile service: %s', $e->getMessage()), ['contao' => new ContaoContext(__METHOD__, 'ERROR')]);
+            $this->logger->error(\sprintf('Error connecting to Cloudflare Turnstile service: %s', $e->getMessage()), ['contao' => new ContaoContext(__METHOD__, 'ERROR')]);
 
             return true;
         }
